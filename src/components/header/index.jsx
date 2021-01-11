@@ -1,19 +1,18 @@
 import React from 'react';
-import RcIf, {RcElse} from 'rc-if';
+import Search from '../search';
 import './header.scss';
 import logo from '../../assets/static/logo.png';
 
 const Header = () => {
     return (
-        <header className='header'>
-            <div className='header__menu'>
-                <ul>
-                    <li>
-                            <img src={logo} height='48px' />
-                    </li>
-                </ul>
+        <nav class="navbar">
+            <div class="w-100 d-flex justify-content-between align-items-center">
+                <a class="navbar-brand" href="#">
+                    <img src={logo} height="48px" />
+                </a>
+                <Search />
             </div>
-        </header>
+        </nav>
     );
 };
 

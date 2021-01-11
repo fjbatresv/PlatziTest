@@ -3,7 +3,7 @@ import './categories.scss';
 
 const Categories = ({children, title}) => {
     return (
-        <div className="categories">
+        <div className="categories w-100">
             <h2 className="categories__title">{title}</h2>
             {children}
         </div>
