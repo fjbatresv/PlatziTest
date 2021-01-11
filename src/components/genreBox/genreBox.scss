@@ -1,0 +1,25 @@
+@import '../../assets/styles/vars.scss';
+
+.genreBox {
+    height: 150px;
+    border: 1px solid $accent_color;
+    color: $white;
+    font-size: 24px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 450ms all;
+}
+
+span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+.genreBox:hover {
+    background-color: $accent_color;
+}

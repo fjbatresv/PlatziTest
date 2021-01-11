@@ -1,13 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './index.scss';
+import { createStore, compose } from 'redux';
+import reducer from './reducers';
+import App from './routes/app';
+import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
+const initialState = {
+  populars: [],
+  genres: []
+};
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, initialState, composeEnhancers());
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store} >
+    <App/>
+  </Provider>,
   document.getElementById('root')
 );
 
