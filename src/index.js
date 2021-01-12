@@ -8,7 +8,9 @@ import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 const initialState = {
   populars: [],
-  genres: []
+  genres: [],
+  searchTerm: '',
+  searchResults: []
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

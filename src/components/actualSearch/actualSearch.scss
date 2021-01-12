@@ -1,0 +1,17 @@
+@import '../../assets/styles/vars.scss';
+.searchInput {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    text-transform: capitalize;
+    margin: 0px 16px;
+}
+
+.searchInput:focus {
+    color: $white;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $accent-color;
+    box-shadow: none;
+}

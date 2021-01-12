@@ -37,11 +37,15 @@ const reducer = (state, action) => {
                 populars: action.payload
             };
         case 'GENRES_RECEIVED':
-            console.log('GENRES', action.payload);
             return {
                 ...state,
                 genres: action.payload
             };
+        case 'UPDATE_SEARCH':
+            return {
+                ...state,
+                searchTerm: action.payload
+            }
         default:
             return state;
     }

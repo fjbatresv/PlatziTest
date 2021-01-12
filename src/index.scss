@@ -1,3 +1,4 @@
+@import "~bootstrap/scss/bootstrap";
 @import './assets/styles/vars.scss';
 
 body {
@@ -34,4 +35,8 @@ body {
 .btn-secondary, .btn-secondary:hover {
   background-color: transparent;
   border-color: transparent;
+}
+
+.mb-32 {
+  margin-bottom: 32px;
 }

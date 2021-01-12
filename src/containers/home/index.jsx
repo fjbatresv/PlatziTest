@@ -29,7 +29,7 @@ const Home = props => {
             <Categories title="Lo mas popular" >
                 <Carousel axis="x">
                     {props.populars.map(item =>
-                        <CarouselItem movie={item} />
+                        <CarouselItem movie={item} className="carousel-item" />
                     )}
                 </Carousel>
             </Categories>

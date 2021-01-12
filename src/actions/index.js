@@ -37,3 +37,13 @@ export const getVideoSource = payload => ({
     type: 'GET_VIDEO_SOURCE',
     payload
 });
+
+export const clearSearchTerm = () => ({
+    type: 'UPDATE_SEARCH',
+    payload: ''
+});
+
+export const updateSearchTerm = payload => ({
+    type: 'UPDATE_SEARCH',
+    payload
+});

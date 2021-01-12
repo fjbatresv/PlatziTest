@@ -1,28 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
+// Redux
+import { connect } from 'react-redux';
+// Router
+import { useHistory } from 'react-router-dom';
+// actions
+import { updateSearchTerm } from '../../actions';
+// Bootstrap
+import Modal from 'react-bootstrap/Modal';
 
-const Search = () => {
+const Search = props => {
+    const history = useHistory();
+    const [form, setValues] = useState({
+        searchTerm: ''
+    });
+    const [modalShow, setModalShow] = React.useState(false);
+
+    const handleInput = event => {
+        setValues({
+            ...form,
+            [event.target.name]: event.target.value
+        });
+    }
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        props.updateSearchTerm(form['searchTerm']);
+        setModalShow(false);
+        history.push('/search');
+    }
+
     return (
         <>
-            <i className="material-icons md-32 clickable" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i className="material-icons md-32 clickable" onClick={() => setModalShow(true)}>
                 search
             </i>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                        <form>
-                            <div class="modal-body">
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Buscar" />
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary">Buscar</button>
-                            </div>
+            <Modal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                aria-labelledby="contained-modal-title-vcenter"
+            >
+                <Modal.Body>
+                    <form onSubmit={handleSubmit} >
+                        <div className="modal-body">
+                            <input name="searchTerm" className="form-control" placeholder="Buscar" onChange={handleInput} />
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" onClick={() => setModalShow(false)} >Cancelar</button>
+                            <button type="submit" className="btn btn-primary">Buscar</button>
+                        </div>
                     </form>
-                    </div>
-                </div>
-            </div>
+                </Modal.Body>
+            </Modal>
         </>
     );
 };
 
-export default Search;
+const mapDispatchToProps = {
+    updateSearchTerm
+};
+
+export default connect(null, mapDispatchToProps)(Search);
