@@ -14,11 +14,7 @@ export const getPopulars = () => {
 }
 
 export const getSearch = (searchTerm) => {
-    const [movies, setResults] = useState([]);
-    useEffect(() => {
-        fetch(`${baseUrl}/search/movie?api_key=${key}&language=es&include_adult=false&query=${searchTerm}&page=1`)
+    return fetch(`${baseUrl}/search/movie?api_key=${key}&language=es&include_adult=false&query=${searchTerm}&page=1`)
             .then(response => response.json())
-            .then(data => setResults(data.results));
-    }, []);
-    return movies;
+            .then(data => data.results);
 }

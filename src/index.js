@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 import { createStore, compose } from 'redux';
 import reducer from './reducers';
 import App from './routes/app';

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 // Style
-import './actualSearch.scss';
+import style from './actualSearch.styl';
 // Bootstrap
-import { Row, Col, InputGroup, FormControl } from 'react-bootstrap';
+import { InputGroup, FormControl } from 'react-bootstrap';
 // Redux
 import { connect } from 'react-redux';
 // Actions
-import { updateSearchTerm, clearSearchTerm } from '../../actions';
+import { updateSearchTerm, clearSearchTerm, searchResults } from '../../actions';
 // Router
 import { useHistory } from 'react-router-dom';
+import { getSearch } from '../../hooks/tmdb.api';
 
 const ActualSearch = props => {
 
@@ -27,6 +28,8 @@ const ActualSearch = props => {
     const handleSubmit = event => {
         event.preventDefault();
         props.updateSearchTerm(form['searchTerm']);
+        getSearch(form['searchTerm'])
+            .then(list => props.searchResults(list));
     }
 
     const clearSearch = event => {
@@ -44,7 +47,7 @@ const ActualSearch = props => {
                         </i>
                     </InputGroup.Prepend>
                     <FormControl
-                        className="searchInput"
+                        className={style.searchInput}
                         placeholder="Buscar"
                         name="searchTerm"
                         onChange={handleInput}
@@ -68,7 +71,8 @@ const mapStateProps = state => {
 
 const mapDispatchToProps = {
     updateSearchTerm,
-    clearSearchTerm
+    clearSearchTerm,
+    searchResults
 };
 
 export default connect(mapStateProps, mapDispatchToProps)(ActualSearch);

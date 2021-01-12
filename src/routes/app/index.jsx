@@ -1,8 +1,8 @@
-import './App.scss';
+import style from './App.styl';
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from '../../containers/home';
-import SearchResults from '../../containers/searchResults';
+import SearchResults from '../../containers/search';
 
 const App = () => (
     <BrowserRouter>

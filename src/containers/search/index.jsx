@@ -1,8 +1,4 @@
-import React from 'react';
-// Redux
-import { connect } from 'react-redux';
-// Actions
-import { updateSearchTerm, clearSearchTerm } from '../../actions';
+import React, { useState } from 'react';
 // Components
 import Header from '../../components/header';
 import Footer from '../../components/footer';
@@ -15,7 +11,6 @@ const SearchResults = props => {
             <Header />
             <ActualSearch />
             <Results />
-            <Footer />
         </>
     );
 };
