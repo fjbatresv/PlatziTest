@@ -3,7 +3,6 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from '../../containers/home';
 import SearchResults from '../../containers/search';
-import Genre from '../../containers/genre';
 import MovieScreen from '../../containers/movie';
 import NotFound from '../../containers/notFound';
 
@@ -12,7 +11,6 @@ const App = () => (
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/search" component={SearchResults} />
-                <Route exact path="/genre" component={Genre} />
                 <Route exact path="/movie" component={MovieScreen} />
                 <Route component={NotFound} />
             </Switch>
