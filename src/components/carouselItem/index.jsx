@@ -1,25 +1,39 @@
 import React from 'react';
+// Redux
+import { connect } from 'react-redux';
+// Style
 import style from './carouselItem.styl';
-const CarouselItem = ({ movie, zoom }) => {
+// Actions
+import { setMovie } from '../../actions/index';
+// Router
+import { useHistory } from 'react-router-dom';
 
-    const poster = `https://image.tmdb.org/t/p/w185${movie.poster_path}`;
+const CarouselItem = props => {
+    const history = useHistory();
+
+    const goMovie = () => {
+        props.setMovie(props.movie.id);
+        history.push('/movie');
+    }
+
+    const poster = `https://image.tmdb.org/t/p/w185${props.movie.poster_path}`;
     let classNames = `${style.movieCard}`;
-    if (zoom) {
+    if (props.zoom) {
         classNames += ` ${style.carouselItem}`;
     }
     return (
-        <div className={classNames} >
-            <img className={style.movieCardImg} src={poster} alt={movie.title} />
+        <div className={classNames} onClick={goMovie} >
+            <img className={style.movieCardImg} src={poster} alt={props.movie.title} />
             <div className={style.movieCardDetails}>
-                <div>
-                    {/* <img className="movie-card__details--img" src={playIcon} alt="Play Icon" />
-                    <img className="movie-card__details--img" src={plusIcon} alt="Plus Icon" /> */}
-                </div>
-                <p className={style.movieCardDetailsTitle}>{movie.title}</p>
-                <p className={style.movieCardDetailsSubtitle}>{`${movie.release_date} ${movie.vote_average}`}</p>
+                <p className={style.movieCardDetailsTitle}>{props.movie.title}</p>
+                <p className={style.movieCardDetailsSubtitle}>{`${props.movie.release_date} ${props.movie.vote_average}`}</p>
             </div>
         </div>
     );
 };
 
-export default CarouselItem;
+const mapDispatchToProps = {
+    setMovie
+};
+
+export default connect(null, mapDispatchToProps)(CarouselItem);

@@ -53,3 +53,5 @@ export const updateSearchTerm = payload => {
 };
 
 export const searchResults = payload => ({ type: 'SEARCH_RESULTS', payload });
+
+export const setMovie = payload => ({type: 'SET_MOVIE', payload});
