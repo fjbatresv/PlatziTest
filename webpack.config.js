@@ -28,12 +28,28 @@ module.exports = {
       }],
     },
     {
-      test: /\.(s*)css$/,
+      test: /\.styl$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            modules: {
+              exportLocalsConvention: "camelCase",
+              localIdentName: '[path]__[name]__[local]--[hash:base64:5]'
+            }
+          }
+        },
+        'stylus-loader',
+      ],
+    },
+    {
+      test: /\.css$/,
       use: [{
         loader: MiniCssExtractPlugin.loader,
       },
         'css-loader',
-        'sass-loader',
       ],
     },
     {

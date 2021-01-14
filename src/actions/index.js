@@ -1,3 +1,5 @@
+import { getSearch } from '../hooks/tmdb.api';
+
 export const genresReceived = payload => ({
     type: 'GENRES_RECEIVED',
     payload
@@ -37,3 +39,19 @@ export const getVideoSource = payload => ({
     type: 'GET_VIDEO_SOURCE',
     payload
 });
+
+export const clearSearchTerm = () => ({
+    type: 'UPDATE_SEARCH',
+    payload: ''
+});
+
+export const updateSearchTerm = payload => {
+    return ({
+        type: 'UPDATE_SEARCH',
+        payload
+    });
+};
+
+export const searchResults = payload => ({ type: 'SEARCH_RESULTS', payload });
+
+export const setMovie = payload => ({type: 'SET_MOVIE', payload});

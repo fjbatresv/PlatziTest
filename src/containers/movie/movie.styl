@@ -1,0 +1,67 @@
+@import '../../assets/styles/vars.styl';
+
+.overview {
+    padding: 0px 16px;
+}
+
+.movie-info {
+    margin-bottom: 32px;
+    padding: 0px 30px;
+}
+
+.movie-images {
+    opacity: 0.4;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 250px;
+    margin-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 450ms all;
+    -webkit-transform-origin: center left;
+    transform-origin: center left;
+    float: none;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.movie-images:hover {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    opacity: 1;
+    width: 200px
+}
+
+.movie-images:hover~.movie-images {
+    -webkit-transform: translate3d(100px, 0, 0);
+    transform: translate3d(100px, 0, 0);
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .movie-poster {
+    width: 200px;
+  }
+  .overview {
+      padding: 0;
+    }
+    .movie-video {
+            max-width: 250px;  
+        }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 680px) {
+  .movie-poster {
+    width: 200px;
+  }
+  .overview  {
+      padding: 0;
+      }
+      .movie-video {
+            max-width: 250px;  
+        }
+}

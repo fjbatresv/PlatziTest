@@ -1,9 +1,8 @@
 import React from 'react'
-import './genreBox.scss';
-
+import style from './genreBox.styl';
 const GenreBox = ({genre}) => {
     return (
-        <div className="genreBox">
+        <div className={style.genreBox}>
                 <span>
                 {genre.name}
                 </span>

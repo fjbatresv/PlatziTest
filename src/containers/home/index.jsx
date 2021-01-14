@@ -10,7 +10,7 @@ import GenreBox from '../../components/genreBox';
 // Actions
 import {popularsReceived, genresReceived} from '../../actions/';
 // Style
-import './home.scss';
+import style from  './home.styl';
 
 const Home = props => {
     if (props.populars.length == 0) {
@@ -29,7 +29,7 @@ const Home = props => {
             <Categories title="Lo mas popular" >
                 <Carousel axis="x">
                     {props.populars.map(item =>
-                        <CarouselItem movie={item} />
+                        <CarouselItem movie={item} zoom />
                     )}
                 </Carousel>
             </Categories>
@@ -38,7 +38,6 @@ const Home = props => {
                     {props.genres.map(item => <GenreBox genre={item} />)}
                 </Carousel>
             </Categories>
-            <Footer />
         </>
     );
 };

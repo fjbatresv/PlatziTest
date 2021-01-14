@@ -1,17 +1,17 @@
 import React from 'react'
 import RcIf, { RcElse } from 'rc-if';
-import './carousel.scss';
+import style from './carousel.styl';
 const Carousel = ({ children, axis }) => {
     return (
         <RcIf if={axis === 'x'} >
-            <section className='carousel'>
-                <div className='carousel__container'>
+            <section className={style.carousel}>
+                <div className={style.carouselContainer}>
                     {children}
                 </div>
             </section>
             <RcElse>
-                <section className='grid'>
-                    <div className='grid__container'>
+                <section className={style.grid}>
+                    <div className={style.gridContainer}>
                         {children}
                     </div>
                 </section>

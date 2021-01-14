@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 import { createStore, compose } from 'redux';
 import reducer from './reducers';
 import App from './routes/app';
@@ -8,7 +9,9 @@ import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 const initialState = {
   populars: [],
-  genres: []
+  genres: [],
+  searchTerm: '',
+  searchResults: []
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

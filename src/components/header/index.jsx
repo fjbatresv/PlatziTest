@@ -1,19 +1,27 @@
 import React from 'react';
-import RcIf, {RcElse} from 'rc-if';
-import './header.scss';
+// Components
+import Search from '../search';
+// Router
+import { Link } from 'react-router-dom';
+// Style
+import style from './header.styl';
+// Images
 import logo from '../../assets/static/logo.png';
 
 const Header = () => {
     return (
-        <header className='header'>
-            <div className='header__menu'>
-                <ul>
-                    <li>
-                            <img src={logo} height='48px' />
-                    </li>
-                </ul>
+        <nav className={style.navbar}>
+            <div className="w-100 d-flex justify-content-between align-items-center">
+                <Link className="navbar-brand" to="/">
+                    <img src={logo} height="48px" />
+                </Link>
+                <Link to="/search">
+                    <i className="material-icons md-32 clickable" >
+                        search
+                    </i>
+                </Link>
             </div>
-        </header>
+        </nav>
     );
 };
 

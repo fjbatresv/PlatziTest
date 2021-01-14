@@ -1,0 +1,5 @@
+# Group 2
+User-agent: *
+Allow: /
+
+Sitemap: http://https://platzitest-56ad3.firebaseapp.com/sitemap.xml

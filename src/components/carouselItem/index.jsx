@@ -1,20 +1,39 @@
 import React from 'react';
-import './carouselItem.scss';
-const CarouselItem = ({ movie }) => {
-    const poster = `https://image.tmdb.org/t/p/w185${movie.poster_path}`;
+// Redux
+import { connect } from 'react-redux';
+// Style
+import style from './carouselItem.styl';
+// Actions
+import { setMovie } from '../../actions/index';
+// Router
+import { useHistory } from 'react-router-dom';
+
+const CarouselItem = props => {
+    const history = useHistory();
+
+    const goMovie = () => {
+        props.setMovie(props.movie.id);
+        history.push('/movie');
+    }
+
+    const poster = `https://image.tmdb.org/t/p/w185${props.movie.poster_path}`;
+    let classNames = `${style.movieCard}`;
+    if (props.zoom) {
+        classNames += ` ${style.carouselItem}`;
+    }
     return (
-        <div className="carousel-item">
-            <img className="carousel-item__img" src={poster} alt={movie.title} />
-            <div className="carousel-item__details">
-                <div>
-                    {/* <img className="carousel-item__details--img" src={playIcon} alt="Play Icon" />
-                    <img className="carousel-item__details--img" src={plusIcon} alt="Plus Icon" /> */}
-                </div>
-                <p className="carousel-item__details--title">{movie.title}</p>
-                <p className="carousel-item__details--subtitle">{`${movie.release_date} ${movie.vote_average}`}</p>
+        <div className={classNames} onClick={goMovie} >
+            <img className={style.movieCardImg} src={poster} alt={props.movie.title} />
+            <div className={style.movieCardDetails}>
+                <p className={style.movieCardDetailsTitle}>{props.movie.title}</p>
+                <p className={style.movieCardDetailsSubtitle}>{`${props.movie.release_date} ${props.movie.vote_average}`}</p>
             </div>
         </div>
     );
 };
 
-export default CarouselItem;
+const mapDispatchToProps = {
+    setMovie
+};
+
+export default connect(null, mapDispatchToProps)(CarouselItem);
