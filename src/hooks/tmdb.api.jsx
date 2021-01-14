@@ -27,10 +27,7 @@ export const getMovieDetails = (id) => {
     });
     useEffect(() => fetch(`${baseUrl}/movie/${id}?api_key=${key}&langauge=es`)
         .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            setMovie(data)
-        }), []);
+        .then(data => setMovie(data)), []);
     return movie;
 }
 

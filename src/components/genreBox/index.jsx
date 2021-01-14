@@ -1,6 +1,5 @@
 import React from 'react'
 import style from './genreBox.styl';
-console.log(style);
 const GenreBox = ({genre}) => {
     return (
         <div className={style.genreBox}>
