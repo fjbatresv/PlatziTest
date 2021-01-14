@@ -20,46 +20,31 @@ export const getSearch = (searchTerm) => {
 }
 
 export const getMovieDetails = (id) => {
-    const [movie, setMovie] = useState({
-        title: '',
-        overview: '',
-        poster_path: ''
-    });
-    useEffect(() => fetch(`${baseUrl}/movie/${id}?api_key=${key}&langauge=es`)
-        .then(response => response.json())
-        .then(data => setMovie(data)), []);
-    return movie;
+    return fetch(`${baseUrl}/movie/${id}?api_key=${key}&langauge=es`)
+        .then(response => response.json());
 }
 
 export const getMovieVideos = (id) => {
-    const [videos, setVideos] = useState([]);
-    useEffect(() => fetch(`${baseUrl}/movie/${id}/videos?api_key=${key}&langauge=es`)
+    return fetch(`${baseUrl}/movie/${id}/videos?api_key=${key}&langauge=es`)
         .then(response => response.json())
-        .then(data => setVideos(data.results)), []);
-    return videos;
+        .then(data => data.results);
 }
 
 export const getMovieImages = (id) => {
-    const [images, setImages] = useState([]);
-    useEffect(() => fetch(`${baseUrl}/movie/${id}/images?api_key=${key}&langauge=es`)
+    return fetch(`${baseUrl}/movie/${id}/images?api_key=${key}&langauge=es`)
         .then(response => response.json())
-        .then(data => setImages(data.posters)), []);
-    return images
+        .then(data => data.posters);
 }
 
 export const getMovieKeywords = (id) => {
-    const [keywords, setKeywords] = useState([]);
-    useEffect(() => fetch(`${baseUrl}/movie/${id}/keywords?api_key=${key}&langauge=es`)
+    return fetch(`${baseUrl}/movie/${id}/keywords?api_key=${key}&langauge=es`)
         .then(response => response.json())
-        .then(data => setKeywords(data.keywords)), []);
-    return keywords
+        .then(data => data.keywords);
 }
 export const getMovieSimilars = (id) => {
-    const [similars, setSimilars] = useState([]);
-    useEffect(() => fetch(`${baseUrl}/movie/${id}/similar?api_key=${key}&langauge=es`)
+    return fetch(`${baseUrl}/movie/${id}/similar?api_key=${key}&langauge=es`)
         .then(response => response.json())
-        .then(data => setSimilars(data.results)), []);
-    return similars;
+        .then(data => data.results);
 }
 export const getMovieReviews = (id) => {
     const [reviews, setRevies] = useState([]);
